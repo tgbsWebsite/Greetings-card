@@ -558,25 +558,35 @@
 
 .header h1 {
     display: flex;
-    flex-direction: column; /* Stacks the icon, line 1, and line 2 */
-    align-items: center;    /* Centers everything horizontally */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 8px;              /* Space between the lines */
+    gap: 8px;
     
     margin: 0 auto 14px;
     max-width: 900px;
     text-align: center;
 
-    font-size: 56px;        /* Slightly adjusted for better balance */
+    font-size: clamp(24px, 5vw, 56px);
     line-height: 1.1;
     font-weight: 700;
     
-    /* Apply the gold gradient to the text */
     background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    letter-spacing: -1px;
+    letter-spacing: clamp(-2px, -0.1vw, -1px);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: clamp(20px, 4vw, 32px);
+        padding: 0 10px;
+    }
+    
+    .header {
+        padding: 15px 10px;
+    }
 }
 
 /* Specifically target the second line to ensure it sits perfectly */
@@ -723,8 +733,7 @@
                             <span class="material-icons">image</span>
                         </div>
                         <h3>Card Canvas</h3>
-                        <p>Fill in your details on the left and select an organization to see your personalized New Year
-                            greeting card materialize here.</p>
+                        <p>Fill in your details on the left and select an organization to see your personalized Certificate materialize here.</p>
                     </div>
                 </div>
                 <div class="btn-group" id="downloadGroup" style="display: none;">
